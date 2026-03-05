@@ -12,13 +12,13 @@ interface SpeechControlProps {
 export const SpeechControl: React.FC<SpeechControlProps> = ({ text }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [persona, setPersona] = useState<VoicePersona>('SISTER');
-  const { trackVoiceInteraction } = useAnalytics();
+  const { trackClick } = useAnalytics();
 
   const handleSpeak = async () => {
     if (isPlaying) return;
     
-    // Log the interaction with full text context
-    trackVoiceInteraction(persona, text);
+    // Log the interaction
+    trackClick(`voice_interaction_${persona}`);
     
     setIsPlaying(true);
     await speakExplanation(text, persona);

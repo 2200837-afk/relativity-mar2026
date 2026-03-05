@@ -6,7 +6,7 @@ import { Info, Play, Pause, RotateCcw, Camera, CameraOff, Rocket } from 'lucide-
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { usePageTracking, useARSession, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
+import { usePageTracking, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
 
 // Asset path helper
 const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\.\//, '');
@@ -65,7 +65,7 @@ export const Simulation3D: React.FC<Simulation3DProps> = ({ velocity: propVeloci
 
   // Analytics Hook
   usePageTracking("WarpDriveSandbox");
-  useARSession("WarpDriveSandbox", arMode);
+  useARTracking("WarpDriveSandbox", arMode);
   const { trackSlider, trackClick } = useAnalytics();
 
   const mountRef = useRef<HTMLDivElement>(null);

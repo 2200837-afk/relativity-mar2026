@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Button } from '../components/Button';
 import { Camera, CameraOff, Info } from 'lucide-react';
 import { SpeechControl } from '../components/SpeechControl';
-import { usePageTracking, useARSession, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
+import { usePageTracking, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
 
 interface ExpTrainTunnel3DProps {
   startInAR?: boolean;
@@ -21,7 +21,7 @@ export const ExpTrainTunnel3D: React.FC<ExpTrainTunnel3DProps> = ({ startInAR = 
 
   // Analytics
   usePageTracking("ExpTrainTunnel");
-  useARSession("ExpTrainTunnel", arMode);
+  useARTracking("ExpTrainTunnel", arMode);
   const { trackSlider } = useAnalytics();
 
   // Refs

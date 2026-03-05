@@ -9,7 +9,7 @@ interface ARBookmarkProps {
 }
 
 export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId }) => {
-  const { trackARInteraction } = useAnalytics();
+  const { trackClick } = useAnalytics();
   
   // Construct a URL that includes the current path and AR parameters
   // Since we use HashRouter, we need to append params to the hash portion
@@ -21,7 +21,7 @@ export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId }) => {
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(getARUrl())}`;
 
   const handleManualTrigger = () => {
-      trackARInteraction(simId, `qr_manual_launch_${simId}`);
+      trackClick(`qr_manual_launch_${simId}`);
       // Manually trigger navigation to the AR view
       const hashBase = window.location.hash.split('?')[0];
       window.location.hash = `${hashBase}${hashBase.includes('?') ? '&' : '?'}mode=ar&sim=${simId}`;

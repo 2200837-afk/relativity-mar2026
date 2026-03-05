@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Button } from '../components/Button';
 import { Camera, CameraOff, Info, AlertTriangle } from 'lucide-react';
 import { SpeechControl } from '../components/SpeechControl';
-import { usePageTracking, useARSession, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
+import { usePageTracking, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
 
 interface ExpDoppler3DProps {
   startInAR?: boolean;
@@ -18,7 +18,7 @@ export const ExpDoppler3D: React.FC<ExpDoppler3DProps> = ({ startInAR = false })
 
   // Analytics
   usePageTracking("ExpDoppler");
-  useARSession("ExpDoppler", arMode);
+  useARTracking("ExpDoppler", arMode);
   const { trackSlider } = useAnalytics();
 
   const mountRef = useRef<HTMLDivElement>(null);

@@ -62,6 +62,7 @@ export type EventType =
   | 'CLICK' 
   | 'SLIDER_CHANGE' 
   | 'AR_INTERACTION' 
+  | 'AR_SESSION' 
   | 'DWELL_TIME' 
   | 'QUIZ_COMPLETE'
   | 'REFLECTION_LOG'
