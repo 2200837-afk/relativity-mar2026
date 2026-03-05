@@ -192,7 +192,6 @@ export const ExpTrainTunnel: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
 
       <div className="shrink-0">
         <ARBookmark title="Train-Tunnel Interaction" simId="ExpTrainTunnel3D" />

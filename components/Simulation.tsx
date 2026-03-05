@@ -291,7 +291,6 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
                     )}
                   </AnimatePresence>
                 </div>
-              </div>
 
               <div className="flex-1 pt-8 lg:pt-0 lg:pl-12 lg:border-l border-white/5 relative z-10">
                   <div className="inner-3d-box p-4">
@@ -300,7 +299,6 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
               </div>
            </div>
         </div>
-      </div>
 
       {/* The AR Bookmark Section - More integrated */}
       <div className="mt-20">

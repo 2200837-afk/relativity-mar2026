@@ -381,3 +381,7 @@ export const ExpTrainTunnel3D: React.FC<ExpTrainTunnel3DProps> = ({ startInAR = 
     </div>
   );
 };
+function trackClick(arg0: string) {
+    throw new Error('Function not implemented.');
+}
+
