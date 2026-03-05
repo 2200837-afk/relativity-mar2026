@@ -1,44 +1,88 @@
-
 import React from 'react';
 import { QrCode, Smartphone, ExternalLink, Info } from 'lucide-react';
 import { useAnalytics } from '../contexts/AnalyticsContext';
+import { supabase } from '../services/databaseService';
 
 interface ARBookmarkProps {
   title: string;
   simId: string;
-  onClick?: () => void;
 }
 
-export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId, onClick }) => {
+export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId }) => {
   const { trackClick } = useAnalytics();
-  
-  // Construct a URL that includes the current path and AR parameters
-  // Since we use HashRouter, we need to append params to the hash portion
+
+  // Construct AR URL
   const getARUrl = () => {
-    // Get the base URL (origin + pathname)
     const baseUrl = window.location.origin + window.location.pathname;
-    // Append the hash-based route with parameters targeting the specific 3D component
     return `${baseUrl}#/?mode=ar&sim=${simId}`;
   };
 
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(getARUrl())}`;
 
-  const handleManualTrigger = () => {
+  // Ensure the user exists in profiles and return UUID
+  const getOrCreateUserId = async (): Promise<string> => {
+    // Example: fetch logged-in user info from your DB / auth context
+    // Replace with your actual user retrieval logic
+    const user = { id: null, name: 'Guest User', email: 'guest@example.com' }; 
+
+    if (user?.id) return user.id;
+
+    // Create a new profile if missing
+    const { data, error } = await supabase
+      .from('profiles')
+      .insert([{ name: user.name, email: user.email }])
+      .select('id');
+
+    if (error || !data || data.length === 0) {
+      console.error('Error creating user profile:', error);
+      throw new Error('Cannot create user profile');
+    }
+
+    return data[0].id; // UUID from DB
+  };
+
+  const handleManualTrigger = async () => {
+    try {
+      const userId = await getOrCreateUserId();
+      const scannedValue = getARUrl();
+
+      // Standard analytics
       trackClick(`qr_manual_launch_${simId}`);
-      if (onClick) onClick();
-      // Manually trigger navigation to the AR view using the root hash
+
+      // Log event to Supabase
+      const { data, error } = await supabase
+        .from('events')
+        .insert([
+          {
+            user_id: userId,
+            event_type: 'qr_scan', // or 'click' if you prefer
+            target: title,
+            metadata: {
+              simId,
+              scannedValue,
+              timestamp: new Date().toISOString(),
+            },
+          },
+        ]);
+      if (error) console.error('Supabase insert error:', error);
+      else console.log('Event logged successfully:', data);
+
+      // Navigate to AR view
       window.location.hash = `/?mode=ar&sim=${simId}`;
+    } catch (err) {
+      console.error('Failed to handle AR bookmark click:', err);
+    }
   };
 
   return (
     <div className="mt-12 bg-space-800 border-2 border-dashed border-space-600 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 group hover:border-cyan-500/50 transition-all duration-300">
-      <div 
+      <div
         className="gradient-box bg-white p-3 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:shadow-cyan-500/20 transition-all cursor-pointer"
         onClick={handleManualTrigger}
       >
         <img src={qrUrl} alt="QR Code for AR" className="w-32 h-32" />
       </div>
-      
+
       <div className="flex-1 text-center md:text-left">
         <div className="flex items-center justify-center md:justify-start gap-2 text-cyan-400 mb-2">
           <QrCode size={20} />
@@ -46,10 +90,10 @@ export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId, onClick })
         </div>
         <h3 className="text-xl font-bold text-white mb-2">Launch Immersive AR: {title}</h3>
         <p className="text-slate-400 text-sm max-w-md">
-          Scan this bookmark with your mobile device to manifest the relativistic 3D model in your physical space. 
+          Scan this bookmark with your mobile device to manifest the relativistic 3D model in your physical space.
           Use your phone as a lens to observe {title} in real-time.
         </p>
-        
+
         <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-4">
           <div className="flex items-center gap-2 text-xs text-slate-500 bg-space-900 px-3 py-1.5 rounded-full border border-space-700">
             <Smartphone size={14} /> Mobile Required
@@ -63,12 +107,12 @@ export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId, onClick })
       <div className="hidden lg:block w-px h-24 bg-space-700"></div>
 
       <div className="hidden lg:flex flex-col gap-2">
-         <div className="flex items-start gap-3 max-w-[200px]">
-            <div className="mt-1"><Info size={14} className="text-cyan-500" /></div>
-            <p className="text-[11px] text-slate-500 leading-tight">
-              Research Note: This "Bookmark" method reduces cognitive load by providing a stable 2D reference before entering spatial interaction.
-            </p>
-         </div>
+        <div className="flex items-start gap-3 max-w-[200px]">
+          <div className="mt-1"><Info size={14} className="text-cyan-500" /></div>
+          <p className="text-[11px] text-slate-500 leading-tight">
+            Research Note: This "Bookmark" method reduces cognitive load by providing a stable 2D reference before entering spatial interaction.
+          </p>
+        </div>
       </div>
     </div>
   );

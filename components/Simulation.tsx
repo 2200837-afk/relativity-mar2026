@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { generatePhysicsExplanation } from '../services/geminiService';
-import { db, supabase } from '../services/databaseService';
+import { db } from '../services/databaseService';
 import { Button } from './Button';
 import { Info, Play, Pause, RotateCcw, Rocket, Layout, Binary, Box, ArrowRight, Sparkles, Zap } from 'lucide-react';
 import { usePageTracking, useAnalytics } from '../contexts/AnalyticsContext';
@@ -304,16 +304,7 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
 
       {/* The AR Bookmark Section - More integrated */}
       <div className="mt-20">
-        <ARBookmark 
-          title="Warp Drive Interaction" 
-          simId="Simulation3D" 
-          onClick={async () => {
-            const { data, error } = await supabase
-              .from("events")
-              .insert([{ event_type: "clicked", target: "Warp Drive Interaction" }]);
-            console.log(data, error);
-          }}
-        />
+        <ARBookmark title="Warp Drive Interaction" simId="Simulation3D" />
       </div>
 
       {/* Next Step Guidance */}
