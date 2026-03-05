@@ -250,7 +250,7 @@ export const ExpTwin: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Twin Paradox Interaction" simId="twin" />
+        <ARBookmark title="Twin Paradox Interaction" simId="ExpTwin3D" />
       </div>
 
       <style>{`

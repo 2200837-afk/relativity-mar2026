@@ -14,17 +14,18 @@ export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId }) => {
   // Construct a URL that includes the current path and AR parameters
   // Since we use HashRouter, we need to append params to the hash portion
   const getARUrl = () => {
-    const baseUrl = window.location.href.split('?')[0];
-    return `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}mode=ar&sim=${simId}`;
+    // Get the base URL (origin + pathname)
+    const baseUrl = window.location.origin + window.location.pathname;
+    // Append the hash-based route with parameters targeting the specific 3D component
+    return `${baseUrl}#/?mode=ar&sim=${simId}`;
   };
 
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(getARUrl())}`;
 
   const handleManualTrigger = () => {
       trackClick(`qr_manual_launch_${simId}`);
-      // Manually trigger navigation to the AR view
-      const hashBase = window.location.hash.split('?')[0];
-      window.location.hash = `${hashBase}${hashBase.includes('?') ? '&' : '?'}mode=ar&sim=${simId}`;
+      // Manually trigger navigation to the AR view using the root hash
+      window.location.hash = `/?mode=ar&sim=${simId}`;
   };
 
   return (

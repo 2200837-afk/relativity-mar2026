@@ -236,7 +236,7 @@ export const ExpDoppler: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Spectral Doppler Interaction" simId="doppler" />
+        <ARBookmark title="Spectral Doppler Interaction" simId="ExpDoppler3D" />
       </div>
 
       <style>{`

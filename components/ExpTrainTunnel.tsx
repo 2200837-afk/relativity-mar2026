@@ -195,7 +195,7 @@ export const ExpTrainTunnel: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Train-Tunnel Interaction" simId="train_tunnel" />
+        <ARBookmark title="Train-Tunnel Interaction" simId="ExpTrainTunnel3D" />
       </div>
 
       <style>{`

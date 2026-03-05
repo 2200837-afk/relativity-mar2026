@@ -303,7 +303,7 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
 
       {/* The AR Bookmark Section - More integrated */}
       <div className="mt-20">
-        <ARBookmark title="Warp Drive Interaction" simId="simulation" />
+        <ARBookmark title="Warp Drive Interaction" simId="Simulation3D" />
       </div>
 
       {/* Next Step Guidance */}

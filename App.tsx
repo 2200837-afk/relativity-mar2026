@@ -95,16 +95,15 @@ const AppContent: React.FC = () => {
     // If AR mode is active via URL params, prioritize 3D components
     if (arMode && simId) {
       switch (simId) {
-        case 'doppler':
+        case 'ExpDoppler3D':
           return <ExpDoppler3D startInAR={true} />;
-        case 'simultaneity':
+        case 'ExpSimultaneity3D':
           return <ExpSimultaneity3D startInAR={true} />;
-        case 'train_tunnel':
+        case 'ExpTrainTunnel3D':
           return <ExpTrainTunnel3D startInAR={true} />;
-        case 'twin':
+        case 'ExpTwin3D':
           return <ExpTwin3D startInAR={true} />;
-        case 'simulation':
-        case 'warp':
+        case 'Simulation3D':
           return <Simulation3D velocity={velocity} setVelocity={setVelocity} startInAR={true} />;
         default:
           break; // Fallback to normal rendering if simId is invalid
