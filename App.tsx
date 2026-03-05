@@ -10,6 +10,7 @@ import { QuestionnairePage } from './components/QuestionnairePage';
 import { QuizPage } from './components/QuizPage';
 import { ResearchPage } from './components/ResearchPage';
 import { FeedbackPage } from './components/FeedbackPage';
+import { NoticeModal } from './components/NoticeModal';
 import { ViewMode } from './types';
 import { HashRouter, useSearchParams } from 'react-router-dom';
 import { db } from './services/databaseService';
@@ -38,9 +39,14 @@ const AppContent: React.FC = () => {
   const [isQuizDone, setIsQuizDone] = useState(false);
   const [isFeedbackDone, setIsFeedbackDone] = useState(false);
   const [showExitReminder, setShowExitReminder] = useState(false);
+  const [showNotice, setShowNotice] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Show notice when entering Quiz or Feedback pages
+    if (currentMode === ViewMode.QUIZ || currentMode === ViewMode.FEEDBACK) {
+      setShowNotice(true);
+    }
   }, [currentMode]);
 
   useEffect(() => {
@@ -65,6 +71,7 @@ const AppContent: React.FC = () => {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
+    setShowNotice(true);
     const user = db.getUser();
     if (user?.learningStyle) {
       setHasStyle(true);
@@ -84,7 +91,12 @@ const AppContent: React.FC = () => {
   };
 
   if (!isLoggedIn) {
-    return <LoginPage onLoginSuccess={handleLogin} />;
+    return (
+      <>
+        <NoticeModal isOpen={showNotice} onClose={() => setShowNotice(false)} type="login" />
+        <LoginPage onLoginSuccess={handleLogin} />
+      </>
+    );
   }
 
   if (!hasStyle) {
@@ -146,6 +158,8 @@ const AppContent: React.FC = () => {
 
         {!arMode && <Navbar currentMode={currentMode} setMode={setMode} onExit={attemptExit} />}
         
+        <NoticeModal isOpen={showNotice} onClose={() => setShowNotice(false)} />
+
         {arMode && (
           <div className="fixed top-4 right-4 z-[100] flex gap-4">
              <Button 

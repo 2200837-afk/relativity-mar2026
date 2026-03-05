@@ -14,7 +14,7 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@react-three/postprocessing": "^3.0.4",
-    "@supabase/supabase-js": "^2.97.0",
+    "@supabase/supabase-js": "^2.98.0",
     "lucide-react": "^0.555.0",
     "motion": "^12.34.3",
     "postprocessing": "^6.38.3",
