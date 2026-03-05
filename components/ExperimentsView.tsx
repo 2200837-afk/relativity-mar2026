@@ -23,7 +23,7 @@ export const ExperimentsView: React.FC<ExperimentsViewProps> = ({ setMode }) => 
       desc: 'Visualize how light changes color as you approach the speed of light.',
       icon: <Zap className="text-yellow-400" size={32} />,
       color: 'hover:border-yellow-500/50',
-      video: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-deep-space-1729-large.mp4'
+      video: '/video/Droppler_Effect.mp4'
     },
     {
       id: 'SIMULTANEITY',
@@ -31,7 +31,7 @@ export const ExperimentsView: React.FC<ExperimentsViewProps> = ({ setMode }) => 
       desc: 'Why "now" means something different for moving observers.',
       icon: <Radio className="text-green-400" size={32} />,
       color: 'hover:border-green-500/50',
-      video: 'https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-a-blue-and-purple-nebula-42861-large.mp4'
+      video: '/video/Simultaneity.mp4'
     },
     {
       id: 'TWIN',
@@ -39,7 +39,7 @@ export const ExperimentsView: React.FC<ExperimentsViewProps> = ({ setMode }) => 
       desc: 'Calculate how much younger a space traveler returns compared to their twin.',
       icon: <Users className="text-purple-400" size={32} />,
       color: 'hover:border-purple-500/50',
-      video: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-animation-of-a-blue-and-purple-nebula-42862-large.mp4'
+      video: '/video/Twin_Paradox.mp4'
     },
     {
       id: 'TRAIN',
@@ -47,7 +47,7 @@ export const ExperimentsView: React.FC<ExperimentsViewProps> = ({ setMode }) => 
       desc: 'Can a long train fit in a short tunnel? Exploring length contraction.',
       icon: <TrainFront className="text-cyan-400" size={32} />,
       color: 'hover:border-cyan-500/50',
-      video: 'https://assets.mixkit.co/videos/preview/mixkit-flying-through-a-star-field-in-space-1730-large.mp4'
+      video: '/video/Train_Tunnel.mp4'
     }
   ];
 
