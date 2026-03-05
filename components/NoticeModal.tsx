@@ -66,7 +66,7 @@ export const NoticeModal: React.FC<NoticeModalProps> = ({ isOpen, onClose, type 
               )}
               
               <a 
-                href="https://forms.gle/1234546567" 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdAF2mUc19iip3Gem3JBTy4i0L7mjtEu02jSx8t5njylkTD1g/viewform?usp=dialog" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl group hover:bg-yellow-500/20 transition-all"
