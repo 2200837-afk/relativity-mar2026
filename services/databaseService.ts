@@ -39,7 +39,7 @@ class DatabaseService {
     this.user = profile;
     localStorage.setItem(USER_KEY, JSON.stringify(profile));
 
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from('profiles')
       .upsert({
         id: profile.id,
@@ -56,12 +56,15 @@ class DatabaseService {
         vark_scores: profile.learningScores
       });
 
+    console.log("PROFILE DATA:", data);
+    console.log("PROFILE ERROR:", error);
+
     if (error) console.error("Supabase Profile Sync Error:", error);
   }
 
   public async saveQuizResult(result: QuizResult) {
     if (!this.user) return;
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from('quiz_results')
       .insert({
         user_id: result.userId,
@@ -69,6 +72,10 @@ class DatabaseService {
         total_questions: result.totalQuestions,
         accuracy_percent: (result.score / result.totalQuestions) * 100
       });
+    
+    console.log("QUIZ DATA:", data);
+    console.log("QUIZ ERROR:", error);
+
     if (error) console.error("Supabase Quiz Log Error:", error);
   }
 
@@ -79,7 +86,7 @@ class DatabaseService {
     this.eventSequence++;
     sessionStorage.setItem(SESSION_SEQ_KEY, this.eventSequence.toString());
 
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from('events')
       .insert({
         user_id: this.user.id,
@@ -91,6 +98,10 @@ class DatabaseService {
         metadata: event.metadata,
         timestamp: new Date(now).toISOString()
       });
+    
+    console.log("EVENT DATA:", data);
+    console.log("EVENT ERROR:", error);
+
     this.lastEventTime = now;
     if (error) console.error("Supabase Event Log Error:", error);
   }
