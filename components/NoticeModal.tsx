@@ -49,7 +49,7 @@ export const NoticeModal: React.FC<NoticeModalProps> = ({ isOpen, onClose, type 
                     We suggest using <span className="text-white font-black italic">Skip & Sign-in as Guest</span> for the fastest experience.
                   </p>
                   <p className="text-xs text-slate-400">
-                    Due to backend limits, Quiz and Feedback data won't be saved. Focus on the <span className="text-white">Learning Paths</span> and <span className="text-white">AR Features</span>!
+                    Due to backend limits, VARK Questionnaire, Quiz and Feedback data won't be saved. Focus on the <span className="text-white">Learning Paths</span> and <span className="text-white">AR Features</span>!
                   </p>
                 </div>
               ) : (
