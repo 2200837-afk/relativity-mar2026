@@ -275,14 +275,7 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
                     <p>In this <span className="text-cyan-400 font-bold">Warp Blueprint</span>, we observe the theoretical contraction of the ship's physical bounds.</p>
                 </div>
 
-                <div className="space-y-4 relative z-10">
-                  <Button onClick={handleExplain} disabled={loadingExpl} className="w-full h-14 rounded-[20px] text-sm font-black uppercase tracking-widest shadow-2xl group" variant="outline">
-                      {loadingExpl ? 'Processing...' : (
-                          <span className="flex items-center gap-3">
-                              Ask AI Expert <Binary size={18} className="group-hover:rotate-12 transition-transform" />
-                          </span>
-                      )}
-                  </Button>
+
                   
                   <AnimatePresence>
                     {explanation && (
