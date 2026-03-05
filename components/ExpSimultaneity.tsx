@@ -220,6 +220,7 @@ export const ExpSimultaneity: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
 
       <div className="shrink-0">
         <ARBookmark title="Simultaneity Interaction" simId="ExpSimultaneity3D" />

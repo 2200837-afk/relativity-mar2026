@@ -297,8 +297,9 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
                     <LorentzGraph currentV={velocity} />
                   </div>
               </div>
-           </div>
-        </div>
+            </div>
+         </div>
+      </div>
 
       {/* The AR Bookmark Section - More integrated */}
       <div className="mt-20">

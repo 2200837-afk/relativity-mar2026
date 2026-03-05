@@ -247,6 +247,7 @@ export const ExpTwin: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
 
       <div className="shrink-0">
         <ARBookmark title="Twin Paradox Interaction" simId="ExpTwin3D" />
