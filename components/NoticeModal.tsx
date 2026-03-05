@@ -75,7 +75,7 @@ export const NoticeModal: React.FC<NoticeModalProps> = ({ isOpen, onClose, type 
                   <ExternalLink size={14} />
                   Complete External Survey
                 </div>
-                <span className="text-[8px] text-yellow-500/60 font-bold group-hover:text-yellow-400">ID: 1234546567</span>
+                <span className="text-[8px] text-yellow-500/60 font-bold group-hover:text-yellow-400">Google Form Link</span>
               </a>
             </div>
 
