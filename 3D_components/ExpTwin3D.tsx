@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { Button } from '../components/Button';
 import { Camera, CameraOff, Play, RotateCcw, Info, Sparkles } from 'lucide-react';
 import { SpeechControl } from '../components/SpeechControl';
-import { usePageTracking, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
+import { usePageTracking, useARSession, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
 
 // Asset path helper
 const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\.\//, '');

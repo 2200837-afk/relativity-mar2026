@@ -6,7 +6,7 @@ import { Info, Play, Pause, RotateCcw, Camera, CameraOff, Rocket } from 'lucide-
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { usePageTracking, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
+import { usePageTracking, useARSession, useARTracking, useAnalytics } from '../contexts/AnalyticsContext';
 
 // Asset path helper
 const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\.\//, '');

@@ -105,3 +105,20 @@ export const usePageTracking = (pageName: string) => {
     trackPageView(pageName);
   }, [pageName]);
 };
+
+export const useARSession = (featureId: string, isActive: boolean) => {
+  const { trackARInteraction } = useAnalytics();
+  useEffect(() => {
+    if (isActive) {
+      trackARInteraction(featureId, "session_start");
+      return () => {
+        trackARInteraction(featureId, "session_end");
+      };
+    }
+  }, [featureId, isActive]);
+};
+
+export const useARTracking = (featureId: string) => {
+  const { trackARInteraction } = useAnalytics();
+  return (objectId: string) => trackARInteraction(featureId, objectId);
+};
