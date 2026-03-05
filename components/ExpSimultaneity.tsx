@@ -5,6 +5,7 @@ import { Play, RotateCcw, Info, Radio, Sparkles, Zap, ArrowRight, Activity } fro
 import { SpeechControl } from './SpeechControl';
 import { usePageTracking, useAnalytics } from '../contexts/AnalyticsContext';
 import { ARBookmark } from './ARBookmark';
+import { supabase } from '../services/databaseService';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ExpSimultaneity: React.FC = () => {
@@ -223,7 +224,16 @@ export const ExpSimultaneity: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Simultaneity Interaction" simId="ExpSimultaneity3D" />
+        <ARBookmark 
+          title="Simultaneity Interaction" 
+          simId="ExpSimultaneity3D" 
+          onClick={async () => {
+            const { data, error } = await supabase
+              .from("events")
+              .insert([{ event_type: "clicked", target: "Simultaneity Interaction" }]);
+            console.log(data, error);
+          }}
+        />
       </div>
 
       <style>{`

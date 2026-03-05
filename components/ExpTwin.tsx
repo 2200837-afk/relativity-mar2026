@@ -5,6 +5,7 @@ import { Play, RotateCcw, Info, Users, ArrowRight, Sparkles, Rocket } from 'luci
 import { SpeechControl } from './SpeechControl';
 import { usePageTracking, useAnalytics } from '../contexts/AnalyticsContext';
 import { ARBookmark } from './ARBookmark';
+import { supabase } from '../services/databaseService';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ExpTwin: React.FC = () => {
@@ -250,7 +251,16 @@ export const ExpTwin: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Twin Paradox Interaction" simId="ExpTwin3D" />
+        <ARBookmark 
+          title="Twin Paradox Interaction" 
+          simId="ExpTwin3D" 
+          onClick={async () => {
+            const { data, error } = await supabase
+              .from("events")
+              .insert([{ event_type: "clicked", target: "Twin Paradox Interaction" }]);
+            console.log(data, error);
+          }}
+        />
       </div>
 
       <style>{`

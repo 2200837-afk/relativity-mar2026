@@ -5,6 +5,7 @@ import { Info, TrainFront, Sparkles, Zap, ArrowRight } from 'lucide-react';
 import { SpeechControl } from './SpeechControl';
 import { usePageTracking, useAnalytics } from '../contexts/AnalyticsContext';
 import { ARBookmark } from './ARBookmark';
+import { supabase } from '../services/databaseService';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ExpTrainTunnel: React.FC = () => {
@@ -195,7 +196,16 @@ export const ExpTrainTunnel: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Train-Tunnel Interaction" simId="ExpTrainTunnel3D" />
+        <ARBookmark 
+          title="Train-Tunnel Interaction" 
+          simId="ExpTrainTunnel3D" 
+          onClick={async () => {
+            const { data, error } = await supabase
+              .from("events")
+              .insert([{ event_type: "clicked", target: "Train-Tunnel Interaction" }]);
+            console.log(data, error);
+          }}
+        />
       </div>
 
       <style>{`

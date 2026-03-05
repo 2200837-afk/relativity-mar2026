@@ -5,6 +5,7 @@ import { Info, AlertTriangle, Activity, Zap, Sparkles, ArrowRight } from 'lucide
 import { SpeechControl } from './SpeechControl';
 import { usePageTracking, useAnalytics } from '../contexts/AnalyticsContext';
 import { ARBookmark } from './ARBookmark';
+import { supabase } from '../services/databaseService';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ExpDoppler: React.FC = () => {
@@ -236,7 +237,16 @@ export const ExpDoppler: React.FC = () => {
       </div>
 
       <div className="shrink-0">
-        <ARBookmark title="Spectral Doppler Interaction" simId="ExpDoppler3D" />
+        <ARBookmark 
+          title="Spectral Doppler Interaction" 
+          simId="ExpDoppler3D" 
+          onClick={async () => {
+            const { data, error } = await supabase
+              .from("events")
+              .insert([{ event_type: "clicked", target: "Spectral Doppler Interaction" }]);
+            console.log(data, error);
+          }}
+        />
       </div>
 
       <style>{`

@@ -6,9 +6,10 @@ import { useAnalytics } from '../contexts/AnalyticsContext';
 interface ARBookmarkProps {
   title: string;
   simId: string;
+  onClick?: () => void;
 }
 
-export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId }) => {
+export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId, onClick }) => {
   const { trackClick } = useAnalytics();
   
   // Construct a URL that includes the current path and AR parameters
@@ -24,6 +25,7 @@ export const ARBookmark: React.FC<ARBookmarkProps> = ({ title, simId }) => {
 
   const handleManualTrigger = () => {
       trackClick(`qr_manual_launch_${simId}`);
+      if (onClick) onClick();
       // Manually trigger navigation to the AR view using the root hash
       window.location.hash = `/?mode=ar&sim=${simId}`;
   };

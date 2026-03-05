@@ -9,7 +9,7 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
   console.warn("Supabase credentials missing. Database sync will be disabled.");
 }
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const USER_KEY = 'rim_user_profile';
 const SESSION_SEQ_KEY = 'rim_event_sequence';
