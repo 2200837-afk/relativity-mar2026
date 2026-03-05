@@ -1,0 +1,160 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+/* Style 1: Dynamic Coordinate System / Droplet Border */
+.coord-box {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+.coord-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  border-radius: 32px;
+  background: conic-gradient(from var(--angle), #ff00ea, #2400ff, transparent 50%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 5;
+}
+
+.coord-box:hover::before {
+  opacity: 1;
+  animation: spin 3s linear infinite;
+}
+
+/* Style 2: Hover Animated Border (Head/Tail) */
+.gradient-box {
+  position: relative;
+  border-radius: 24px;
+  transition: transform 0.3s ease;
+}
+
+.gradient-box::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 28px;
+  padding: 4px;
+  background: linear-gradient(45deg, #2400ff, #ba49ff);
+  opacity: 0.4;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 0.5s ease, background 0.5s ease;
+  z-index: 5;
+}
+
+.gradient-box:hover::before {
+  opacity: 1;
+  background: conic-gradient(
+    from var(--angle),
+    #ff00ea 0deg,
+    #ba49ff 40deg,
+    transparent 80deg,
+    #2400ff 180deg,
+    #ff00ea 360deg
+  );
+  animation: spin 2s linear infinite;
+}
+
+/* Style 3: 3D Flexbox Video Hover */
+.card-3d {
+  position: relative;
+  border-radius: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 
+    0 1px 0 rgba(255,255,255,0.1) inset,
+    0 8px 0 #151932,
+    0 15px 20px rgba(0,0,0,0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-3d:hover {
+  transform: scale(1.02) translateY(-8px);
+  box-shadow: 
+    0 1px 0 rgba(255,255,255,0.2) inset,
+    0 12px 0 #1e2548, 
+    0 30px 40px rgba(0,0,0,0.5);
+}
+
+/* Ridge Effect - Raised/Embossed (Big Container) */
+.advanced-3d-box {
+  position: relative;
+  background: #1e2548; /* bg-space-800 */
+  border-radius: 40px;
+  /* Ridge border: light top/left, dark bottom/right */
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 8px 0 #0b0d17,                          /* 3D Side thickness */
+    0 15px 25px rgba(0, 0, 0, 0.4);           /* Floor shadow */
+  margin-bottom: 8px;
+  transition: none;
+}
+
+/* Groove Effect - Inset/Engraved (Small Container) */
+.inner-3d-box {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  /* Groove border: dark top/left, light bottom/right */
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  border-right: 2px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: none;
+}
+
+/* Video Background for Style 1 & 3 */
+.video-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.coord-box:hover .video-bg,
+.card-3d:hover .video-bg {
+  opacity: 0.2;
+}
+
+/* Flex Grid Wrapper for Style 1 */
+.grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.grid-wrapper:hover .coord-box:not(:hover) {
+  flex: 0.9;
+  opacity: 0.7;
+}
+
+.coord-box:hover {
+  flex: 1.1;
+}
