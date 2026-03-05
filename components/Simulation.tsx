@@ -150,7 +150,7 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
                           <div className="w-full flex items-center justify-between px-8 mb-12">
                               <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-black text-cyan-400 uppercase tracking-widest">
                                 <div className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></div>
-                                System_Active // Stationary_Frame
+                                System_Active {/* Stationary_Frame */}
                               </div>
                               <div className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Engine_Core: Nominal</div>
                           </div>
@@ -335,4 +335,3 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
     </div>
   );
 };
-
