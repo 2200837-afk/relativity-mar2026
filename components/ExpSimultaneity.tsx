@@ -210,7 +210,7 @@ export const ExpSimultaneity: React.FC = () => {
                     <p className="text-lg text-slate-300 leading-relaxed italic font-medium">
                         "{explanationText}"
                     </p>
-                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
+                    <div className="mt-6 pt-6 border-t border-white/5 flex flex-col gap-4">
                       <SpeechControl text={explanationText} />
                       <div className="flex items-center gap-2 text-[10px] font-black text-slate-500 uppercase tracking-widest">
                         Shift: <span className="text-green-400">{frame === 'platform' ? 'DETECTED' : 'NULL'}</span>
