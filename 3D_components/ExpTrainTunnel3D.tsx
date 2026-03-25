@@ -375,7 +375,7 @@ export const ExpTrainTunnel3D: React.FC<ExpTrainTunnel3DProps> = ({ startInAR = 
             <p className="text-sm text-slate-300 leading-relaxed">
                 {explanationText}
             </p>
-            <SpeechControl text={explanationText} />
+          
          </div>
       </div>
     </div>
