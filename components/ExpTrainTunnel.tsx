@@ -187,7 +187,7 @@ export const ExpTrainTunnel: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 p-8 md:p-12 rounded-[32px] border border-white/10 flex flex-col lg:flex-row gap-12 relative overflow-hidden group/info inner-3d-box">
+                <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 p-8 md:p-12 rounded-[32px] border border-white/10 flex flex-col gap-12 relative overflow-hidden group/info inner-3d-box">
                     <div className="absolute top-0 right-0 p-24 bg-cyan-500/5 rounded-full blur-3xl group-hover/info:bg-cyan-500/10 transition-colors"></div>
                     
                     <div className="relative z-10 flex-1">
@@ -203,7 +203,7 @@ export const ExpTrainTunnel: React.FC = () => {
                     </div>
 
                     <div className="mt-6 pt-6 border-t border-white/5 flex flex-col gap-4">
-                      <div className="flex items-center gap-2 text-[10px] font-black text-cyan-500 uppercase tracking-widest">
+                      <div className="flex flex-col gap-4 text-[10px] font-black text-cyan-500 uppercase tracking-widest">
                         Length_Contraction_Active <Zap size={10} />
                       </div>
                       <SpeechControl text={explanationText} />
