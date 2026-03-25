@@ -23,8 +23,15 @@ export const ExpSimultaneity: React.FC = () => {
   };
 
   const explanationText = frame === 'platform' 
-    ? "Events are NOT simultaneous. The back wall moves toward the light, hitting first."
-    : "Events ARE simultaneous. The walls are equidistant and the light speed is constant.";
+    ? "From the platform observer's perspective, the lightning strikes the front and back ends of the train at the same time. " +
+      "However, because the train is moving, the rear of the train moves toward the incoming light while the front moves away. " +
+      "Therefore, an observer on the train sees the rear lightning strike first and the front strike later. " +
+      "This demonstrates that simultaneity is relative: two events simultaneous in one frame are not simultaneous in another."
+    : "From the train observer's perspective, the train is at rest relative to them. " +
+      "The walls of the train are equidistant from the center where the light is emitted, and light speed is constant. " +
+      "Hence, both lightning strikes reach the observer simultaneously. " +
+      "This shows that simultaneity depends on the observer's frame of reference, a key principle of special relativity.";
+
 
   // Animation logic for 2D representation
   React.useEffect(() => {
@@ -42,6 +49,20 @@ export const ExpSimultaneity: React.FC = () => {
 
   return (
     <div className="space-y-12 animate-in fade-in duration-700 max-w-6xl mx-auto relative">
+
+      {/* Key Idea / Pre-Knowledge */}
+      <div className="bg-green-500/5 p-6 rounded-[24px] border border-green-500/20 text-base leading-relaxed inner-3d-box mb-8">
+        <div className="text-green-400 text-[22px] font-black uppercase tracking-widest mb-2">
+          Quick Start
+        </div>
+        <p className="text-slate-300 text-[20px] font-medium">
+          In classical physics, if two lightning bolts strike the ends of a train simultaneously for a platform observer, 
+          everyone would expect both observers (on the platform and on the train) to see them as simultaneous. 
+          Special relativity shows this is NOT the case: the moving train observer may see one strike before the other 
+          due to the finite and constant speed of light. This is the core of the <strong>Simultaneity Paradox</strong>.
+          Use the controls below to explore how motion changes the perceived order of events.
+        </p>
+      </div>
       
       {/* Navigator Cat - Pop-out Assistant */}
       <motion.div 
