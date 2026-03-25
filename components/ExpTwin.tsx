@@ -34,10 +34,32 @@ export const ExpTwin: React.FC = () => {
   const earthAgeVal = 20 + (progress * totalTripTimeEarth);
   const shipAgeVal = 20 + (progress * totalTripTimeEarth / gamma);
 
-  const explanationText = "The space-time path of the traveling twin is shorter than the earthbound twin's path because of the acceleration and shift in reference frames.";
+  const explanationText = 
+    "From the Earth observer’s perspective, the traveling twin moves at near-light speed, so their clock runs slower 
+    compared to the twin remaining on Earth. When the traveling twin returns, they have aged less. 
+    From the traveling twin’s perspective, during the outbound and inbound journeys, the Earth twin seems to age more slowly, 
+    but the critical difference arises at the turnaround point: the traveling twin switches inertial frames, 
+    creating a discontinuity in simultaneity. This breaks the symmetry and explains why the traveling twin ends up younger. 
+    The paradox highlights that in special relativity, aging depends on the path through space-time, not just relative velocity.
+    ";
 
   return (
     <div className="space-y-12 animate-in fade-in duration-700 relative">
+
+      {/* Key Idea / Pre-Knowledge */}
+      <div className="bg-purple-500/5 p-6 rounded-[24px] border border-purple-500/20 text-base leading-relaxed inner-3d-box mb-8">
+        <div className="text-purple-400 text-[14px] font-black uppercase tracking-widest mb-2">
+          Key Idea
+        </div>
+        <p className="text-slate-300 text-[16px] font-medium">
+          Imagine two identical twins: one stays on Earth while the other travels to a distant star at near-light speed and returns. 
+          According to classical thinking, both should age the same. However, special relativity predicts that the traveling twin ages 
+          less due to <strong>time dilation</strong> – time runs slower for objects moving at relativistic speeds. 
+          The paradox arises because each twin sees the other as moving. So, who is really younger upon reunion? 
+          The resolution lies in the fact that the traveling twin experiences acceleration and a change of inertial frames, 
+          breaking the symmetry. This demonstrates that in relativity, time is not absolute but depends on the observer's path through space-time.
+        </p>
+      </div>
       
       {/* Navigator Cat - Pop-out Assistant */}
       <motion.div 
@@ -237,7 +259,7 @@ export const ExpTwin: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="pt-8 lg:pt-0 lg:pl-12 lg:border-l border-white/5 flex flex-col justify-center gap-6 relative z-10">
+                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
                       <div className="flex items-center gap-2 text-[10px] font-black text-purple-500 uppercase tracking-widest">
                         Frame_Symmetry_Broken <Rocket size={10} />
                       </div>
