@@ -52,10 +52,10 @@ export const ExpSimultaneity: React.FC = () => {
 
       {/* Key Idea / Pre-Knowledge */}
       <div className="bg-green-500/5 p-6 rounded-[24px] border border-green-500/20 text-base leading-relaxed inner-3d-box mb-8">
-        <div className="text-green-400 text-[16px] font-black uppercase tracking-widest mb-2">
+        <div className="text-green-400 text-[14px] font-black uppercase tracking-widest mb-2">
           KEY IDEA
         </div>
-        <p className="text-slate-300 text-[14px] font-medium">
+        <p className="text-slate-300 text-[16px] font-medium">
           In classical physics, if two lightning bolts strike the ends of a train simultaneously for a platform observer, 
           everyone would expect both observers (on the platform and on the train) to see them as simultaneous. 
           Special relativity shows this is NOT the case: the moving train observer may see one strike before the other 
