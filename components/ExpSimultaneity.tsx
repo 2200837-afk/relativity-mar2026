@@ -142,51 +142,43 @@ export const ExpSimultaneity: React.FC = () => {
                     
                     <div className="relative w-full h-24 border-x-4 border-slate-700 bg-space-800/40 rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden">
                     
-                      {/* Moving Train Wrapper */}
+                    {/* Moving Train + Light + Detectors */}
+                    <div className="relative w-full h-24 border-x-4 border-slate-700 bg-space-800/40 rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden">
                       <motion.div
-                          className="relative w-full h-full flex items-center justify-center"
-                          animate={{ x: frame === 'platform' ? progress * 100 - 50 : 0 }}
-                          transition={{ ease: "linear", duration: 0.3 }}
+                        className="absolute w-full h-full flex items-center justify-center"
+                        animate={{ x: frame === 'platform' ? progress * 100 - 50 : 0 }}
+                        transition={{ ease: 'linear', duration: 0.3 }}
                       >
-                          {/* Light + Wave Wrapper */}
-                          <div className="relative w-24 h-24"> 
-                            {/* Light Source */}
-                            <div
-                              className="absolute w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"
-                              style={{
-                                top: '50%', 
-                                left: '50%', 
-                                transform: 'translate(-50%, -50%)',
-                              }}
-                            ></div>
+                        {/* Detectors (fixed relative to train track) */}
+                        <div
+                          className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
+                          style={{ left: '10%' }}
+                        ></div>
+                        <div
+                          className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.7 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
+                          style={{ right: '10%' }}
+                        ></div>
+                    
+                        {/* Light Source + Wave */}
+                        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                          {/* Light */}
+                          <div className="absolute w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse" />
                           
-                            {/* Expanding Wave */}
-                            <motion.div
-                              animate={{ scale: progress * 10, opacity: 1 - progress }}
-                              className="absolute border border-yellow-400/50 rounded-full"
-                              style={{
-                                width: '80px',
-                                height: '80px',
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                originX: 0.5,  // scale from center
-                                originY: 0.5,  // scale from center
-                              }}
-                            ></motion.div>
-                          </div>
-                    
-                          {/* Left Detector */}
-                          <div 
-                              className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
-                              style={{ left: '10%' }}
-                          ></div>
-                    
-                          {/* Right Detector */}
-                          <div 
-                              className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.7 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
-                              style={{ right: '10%' }}
-                          ></div>
+                          {/* Expanding Wave */}
+                          <motion.div
+                            animate={{ scale: progress * 10, opacity: 1 - progress }}
+                            className="absolute border border-yellow-400/50 rounded-full"
+                            style={{
+                              width: '80px',
+                              height: '80px',
+                              top: '50%',
+                              left: '50%',
+                              transform: 'translate(-50%, -50%)',
+                              originX: 0.5,
+                              originY: 0.5,
+                            }}
+                          />
+                        </div>
                       </motion.div>
                     </div>
 
