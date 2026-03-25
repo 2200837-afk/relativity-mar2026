@@ -181,6 +181,7 @@ export const ExpSimultaneity: React.FC = () => {
                         </div>
                       </motion.div>
                     </div>
+                </div>
 
                     <div className="mt-8 flex justify-between w-full px-4 text-[8px] font-black text-slate-500 uppercase tracking-widest">
                         <div className="flex flex-col items-center gap-1">
