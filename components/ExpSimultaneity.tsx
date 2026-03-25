@@ -148,29 +148,30 @@ export const ExpSimultaneity: React.FC = () => {
                           animate={{ x: frame === 'platform' ? progress * 100 - 50 : 0 }}
                           transition={{ ease: "linear", duration: 0.3 }}
                       >
-                          <div className="relative">
+                          {/* Light + Wave Wrapper */}
+                          <div className="relative w-24 h-24"> 
                             {/* Light Source */}
-                            <div 
-                                className="absolute w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"
-                                style={{
-                                    top: '50%',
-                                    left: '50%',
-                                    transform: 'translate(-50%, -50%)',
-                                    marginTop: '-1px',
-                                    marginLeft: '0px',
-                                }}
+                            <div
+                              className="absolute w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"
+                              style={{
+                                top: '50%', 
+                                left: '50%', 
+                                transform: 'translate(-50%, -50%)',
+                              }}
                             ></div>
                           
-                            {/* Expanding Light Wave */}
+                            {/* Expanding Wave */}
                             <motion.div
                               animate={{ scale: progress * 10, opacity: 1 - progress }}
                               className="absolute border border-yellow-400/50 rounded-full"
                               style={{
                                 width: '80px',
                                 height: '80px',
-                                top: '50%',     // match the light source manually
-                                left: '90%',    // match the light source manually
-                                transform: 'translate(-50%, -50%)', 
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                originX: 0.5,  // scale from center
+                                originY: 0.5,  // scale from center
                               }}
                             ></motion.div>
                           </div>
