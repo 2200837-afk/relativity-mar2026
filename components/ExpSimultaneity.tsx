@@ -153,7 +153,7 @@ export const ExpSimultaneity: React.FC = () => {
                               className="absolute w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"
                               style={{
                                   top: '50%',
-                                  left: '50%',
+                                  left: '90%',
                                   transform: 'translate(-50%, -50%)',
                                   marginTop: '-1px',    // tweak vertical
                                   marginLeft: '0px',    // tweak horizontal
