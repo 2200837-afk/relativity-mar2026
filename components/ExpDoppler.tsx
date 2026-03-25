@@ -231,7 +231,7 @@ export const ExpDoppler: React.FC = () => {
                        </p>
                      </div>
 
-                     <div className="pt-8 lg:pt-0 lg:pl-12 lg:border-l border-white/5 flex flex-col justify-center gap-6 relative z-10">
+                     <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
                         <div className="flex items-center justify-between w-full">
                           <SpeechControl text={explanationText} />
                           <motion.div 
