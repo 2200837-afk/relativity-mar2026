@@ -81,10 +81,10 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
 
       {/* ✅ Pre-Knowledge Block (Top of Page) */}
       <div className="bg-yellow-500/5 p-4 rounded-[24px] border border-yellow-500/20 text-xs leading-relaxed inner-3d-box mb-6">
-        <div className="text-yellow-400 text-[10px] font-black uppercase tracking-widest mb-2">
+        <div className="text-yellow-400 text-[14px] font-black uppercase tracking-widest mb-2">
           Quick Start
         </div>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-300 text-[16px] font-medium">
           At everyday speeds, time and length seem constant. But as an object approaches the speed of light,
           time slows down and lengths contract from an outside observer's view.
           Use the slider to explore how these changes happen.
