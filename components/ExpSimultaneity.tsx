@@ -166,7 +166,7 @@ export const ExpSimultaneity: React.FC = () => {
                           
                           {/* Expanding Wave */}
                           <motion.div
-                            animate={{ scale: progress * 15, opacity: 1 - progress }}
+                            animate={{ scale: progress * 12, opacity: 1 - progress }}
                             className="absolute border border-yellow-400/50 rounded-full"
                             style={{
                               width: '80px',
