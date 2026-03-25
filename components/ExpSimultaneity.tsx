@@ -155,7 +155,7 @@ export const ExpSimultaneity: React.FC = () => {
                           style={{ left: '10%' }}
                         ></div>
                         <div
-                          className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
+                          className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.5 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
                           style={{ right: '10%' }}
                         ></div>
                     
