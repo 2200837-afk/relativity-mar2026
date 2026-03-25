@@ -35,13 +35,13 @@ export const ExpTwin: React.FC = () => {
   const shipAgeVal = 20 + (progress * totalTripTimeEarth / gamma);
 
   const explanationText = 
-    "From the Earth observer’s perspective, the traveling twin moves at near-light speed, so their clock runs slower 
+    `From the Earth observer’s perspective, the traveling twin moves at near-light speed, so their clock runs slower 
     compared to the twin remaining on Earth. When the traveling twin returns, they have aged less. 
     From the traveling twin’s perspective, during the outbound and inbound journeys, the Earth twin seems to age more slowly, 
     but the critical difference arises at the turnaround point: the traveling twin switches inertial frames, 
     creating a discontinuity in simultaneity. This breaks the symmetry and explains why the traveling twin ends up younger. 
     The paradox highlights that in special relativity, aging depends on the path through space-time, not just relative velocity.
-    ";
+    `;
 
   return (
     <div className="space-y-12 animate-in fade-in duration-700 relative">
