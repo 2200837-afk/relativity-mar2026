@@ -17,11 +17,31 @@ export const ExpTrainTunnel: React.FC = () => {
   const gamma = 1 / Math.sqrt(1 - velocity * velocity);
 
   const explanationText = viewFrame === 'tunnel' 
-    ? "From the Tunnel's perspective, the moving train contracts and physically fits inside."
-    : "From the Train's perspective, the tunnel contracts, so the train appears too long.";
+    ? "From the tunnel observer's perspective, the train is moving at relativistic speed. Due to Lorentz contraction, " +
+      "the train’s length along the direction of motion appears shorter. This allows the entire train to fit inside the tunnel, " +
+      "even if it seems too long at rest. The paradox arises because this contracted length is frame-dependent, " +
+      "so another observer (on the train) would see a very different situation."
+    : "From the train observer's perspective, the train is at rest and retains its full proper length. " +
+      "Instead, the tunnel is moving toward the train and undergoes Lorentz contraction. " +
+      "Now, the tunnel appears shorter than the train, so the train seems too long to fit. " +
+      "This illustrates the key idea of relativity: lengths are not absolute, but depend on the observer's frame of reference.";
 
   return (
     <div className="space-y-12 animate-in fade-in duration-700 relative">
+
+      {/* Key Idea / Pre-Knowledge */}
+      <div className="bg-cyan-500/5 p-6 rounded-[24px] border border-cyan-500/20 text-base leading-relaxed inner-3d-box mb-8">
+        <div className="text-cyan-400 text-[14px] font-black uppercase tracking-widest mb-2">
+          Key Idea
+        </div>
+        <p className="text-slate-300 text-[16px] font-medium">
+          Imagine a very fast train approaching a tunnel. Classically, if the train is longer than the tunnel, it won't fit. 
+          But at relativistic speeds, special relativity tells us that lengths contract along the direction of motion. 
+          From the <strong>tunnel observer's frame</strong>, the moving train contracts and may fit inside. 
+          From the <strong>train observer's frame</strong>, the tunnel contracts instead, making the train appear too long. 
+          This leads to the <strong>Train-Tunnel Paradox</strong> – the same event is perceived differently depending on the observer's frame.
+        </p>
+      </div>
       
       {/* Navigator Cat - Pop-out Assistant */}
       <motion.div 
@@ -182,7 +202,7 @@ export const ExpTrainTunnel: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="pt-8 lg:pt-0 lg:pl-12 lg:border-l border-white/5 flex flex-col justify-center gap-6 relative z-10">
+                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
                       <div className="flex items-center gap-2 text-[10px] font-black text-cyan-500 uppercase tracking-widest">
                         Length_Contraction_Active <Zap size={10} />
                       </div>
