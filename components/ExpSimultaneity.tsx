@@ -163,13 +163,15 @@ export const ExpSimultaneity: React.FC = () => {
                           
                             {/* Expanding Light Wave */}
                             <motion.div
-                                animate={{ scale: progress * 10, opacity: 1 - progress }}
-                                className="absolute top-1/2 left-1/2 border border-yellow-400/50 rounded-full transition-all duration-75"
-                                style={{
-                                    width: '80px',
-                                    height: '80px',
-                                    transform: 'translate(-50%, -50%)',  // same as light
-                                }}
+                              animate={{ scale: progress * 10, opacity: 1 - progress }}
+                              className="absolute border border-yellow-400/50 rounded-full"
+                              style={{
+                                width: '80px',
+                                height: '80px',
+                                top: '50%',     // match the light source manually
+                                left: '90%',    // match the light source manually
+                                transform: 'translate(-50%, -50%)', 
+                              }}
                             ></motion.div>
                           </div>
                     
