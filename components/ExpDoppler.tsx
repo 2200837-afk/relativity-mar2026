@@ -40,13 +40,26 @@ export const ExpDoppler: React.FC = () => {
   const isInvisible = observedWavelength < 380 || observedWavelength > 780;
   
   const explanationText = Math.abs(velocity) < 0.05 
-    ? "Stationary state. The spectral lines remain in their original green position."
-    : velocity > 0 
-        ? "Blueshift: Wavelengths are compressed. Frequency increases as you approach the source."
-        : "Redshift: Wavelengths are stretched. Frequency decreases as you recede from the source.";
+      ? "At rest, the observed wavelength remains unchanged. The light appears in its original green color, meaning there is no Doppler shift."
+      : velocity > 0 
+        ? `As the observer moves toward the light source, the wavefronts are compressed. This reduces the wavelength to ${observedWavelength.toFixed(0)} nm, shifting the light toward the blue end of the spectrum. Higher frequency means higher energy, which is why the color appears bluer.`
+        : `As the observer moves away from the light source, the wavefronts are stretched. This increases the wavelength to ${observedWavelength.toFixed(0)} nm, shifting the light toward the red end of the spectrum. Lower frequency means lower energy, causing the redshift effect.`;
 
   return (
     <div className="space-y-12 animate-in fade-in duration-700 max-w-6xl mx-auto relative">
+
+      {/* ✅ Key Idea Block - Doppler (Top of Page) */}
+      <div className="bg-yellow-500/5 p-4 rounded-[24px] border border-yellow-500/20 text-xs leading-relaxed inner-3d-box mb-6">
+        <div className="text-yellow-400 text-[22px] font-black uppercase tracking-widest mb-2">
+          Key Idea
+        </div>
+        <p className="text-slate-300 text-[20px] font-medium">
+          When a source of light moves relative to you, its color can change — even though the light itself has not changed.
+          This is called the Doppler Effect. At very high speeds (close to the speed of light), this shift becomes extreme:
+          light can move out of the visible range, becoming invisible (ultraviolet or infrared).
+          Use the slider to explore how motion changes what you observe.
+        </p>
+      </div>
       
       {/* Navigator Cat - Pop-out Assistant */}
       <motion.div 
