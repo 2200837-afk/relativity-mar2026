@@ -650,7 +650,7 @@ export const ExpSimultaneity3D: React.FC<ExpSimultaneity3DProps> = ({ startInAR 
             <p className="text-sm text-slate-300 leading-relaxed">
                 {explanationText}
             </p>
-            <SpeechControl text={explanationText} />
+            
         </div>
       </div>
     </div>
