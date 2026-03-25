@@ -202,7 +202,7 @@ export const ExpTrainTunnel: React.FC = () => {
                       </p>
                     </div>
 
-                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
+                    <div className="mt-6 pt-6 border-t border-white/5 flex flex-col gap-4">
                       <div className="flex items-center gap-2 text-[10px] font-black text-cyan-500 uppercase tracking-widest">
                         Length_Contraction_Active <Zap size={10} />
                       </div>
