@@ -323,7 +323,7 @@ export const ExpTwin3D: React.FC<ExpTwin3DProps> = ({ startInAR = false }) => {
             <p className="text-sm text-slate-300 leading-relaxed">
                 {explanationText}
             </p>
-            <SpeechControl text={explanationText} />
+           
         </div>
       </div>
     </div>
