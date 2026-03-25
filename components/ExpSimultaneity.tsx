@@ -149,18 +149,41 @@ export const ExpSimultaneity: React.FC = () => {
                           transition={{ ease: "linear", duration: 0.3 }}
                       >
                           {/* Centered Light */}
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"></div>
+                          <div 
+                              className="absolute w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"
+                              style={{
+                                  top: '50%',
+                                  left: '50%',
+                                  transform: 'translate(-50%, -50%)',
+                                  marginTop: '-1px',    // tweak vertical
+                                  marginLeft: '0px',    // tweak horizontal
+                              }}
+                          ></div>
                     
                           {/* Expanding Light Waves */}
                           <motion.div 
                               animate={{ scale: progress * 10, opacity: 1 - progress }}
-                              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-yellow-400/50 rounded-full transition-all duration-75"
-                              style={{ width: '80px', height: '80px' }}
+                              className="absolute border border-yellow-400/50 rounded-full transition-all duration-75"
+                              style={{
+                                  width: '80px',
+                                  height: '80px',
+                                  top: '50%',
+                                  left: '50%',
+                                  transform: 'translate(-50%, -50%)'
+                              }}
                           ></motion.div>
                     
-                          {/* Left/Right Detectors */}
-                          <div className={`absolute left-0 top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}></div>
-                          <div className={`absolute right-0 top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.7 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}></div>
+                          {/* Left Detector */}
+                          <div 
+                              className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
+                              style={{ left: '10%' }}
+                          ></div>
+                    
+                          {/* Right Detector */}
+                          <div 
+                              className={`absolute top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.7 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}
+                              style={{ right: '10%' }}
+                          ></div>
                       </motion.div>
                     </div>
 
