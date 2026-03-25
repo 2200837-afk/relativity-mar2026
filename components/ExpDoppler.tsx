@@ -216,7 +216,7 @@ export const ExpDoppler: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-yellow-500/10 to-cyan-500/10 p-8 md:p-12 rounded-[32px] border border-white/10 flex flex-col lg:flex-row gap-12 relative overflow-hidden group/info inner-3d-box">
+                <div className="bg-gradient-to-br from-yellow-500/10 to-cyan-500/10 p-8 md:p-12 rounded-[32px] border border-white/10 flex flex-col gap-12 relative overflow-hidden group/info inner-3d-box">
                      <div className="absolute top-0 right-0 p-24 bg-yellow-500/5 rounded-full blur-3xl group-hover/info:bg-yellow-500/10 transition-colors"></div>
                      
                      <div className="relative z-10 flex-1">
