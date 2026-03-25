@@ -141,27 +141,27 @@ export const ExpSimultaneity: React.FC = () => {
                     <div className="text-[8px] text-slate-500 uppercase font-black tracking-[0.5em] mb-8">Synchronicity_Matrix ({frame.toUpperCase()}_FRAME)</div>
                     
                     <div className="relative w-full h-24 border-x-4 border-slate-700 bg-space-800/40 rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                        
-                        {/* The Light Source */}
-                        <div className="w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"></div>
-                        
-                        {/* Expanding Light Waves */}
-                        <motion.div 
-                            animate={{ 
-                              scale: progress * 10,
-                              opacity: 1 - progress 
-                            }}
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-yellow-400/50 rounded-full transition-all duration-75"
-                            style={{ 
-                                width: '80px', 
-                                height: '80px',
-                            }}
-                        ></motion.div>
-
-                        {/* Left/Right Detectors */}
-                        <div className={`absolute left-0 top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}></div>
-                        <div className={`absolute right-0 top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.7 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}></div>
+                    
+                      {/* Moving Train Wrapper */}
+                      <motion.div
+                          className="relative w-full h-full flex items-center justify-center"
+                          animate={{ x: frame === 'platform' ? progress * 100 - 50 : 0 }}
+                          transition={{ ease: "linear", duration: 0.3 }}
+                      >
+                          {/* Centered Light */}
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-yellow-400 rounded-full shadow-[0_0_20px_rgba(250,204,21,0.8)] z-20 animate-pulse"></div>
+                    
+                          {/* Expanding Light Waves */}
+                          <motion.div 
+                              animate={{ scale: progress * 10, opacity: 1 - progress }}
+                              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-yellow-400/50 rounded-full transition-all duration-75"
+                              style={{ width: '80px', height: '80px' }}
+                          ></motion.div>
+                    
+                          {/* Left/Right Detectors */}
+                          <div className={`absolute left-0 top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.3 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}></div>
+                          <div className={`absolute right-0 top-0 bottom-0 w-2 transition-all duration-300 ${progress > (frame === 'platform' ? 0.7 : 0.5) ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]' : 'bg-red-900/50'}`}></div>
+                      </motion.div>
                     </div>
 
                     <div className="mt-8 flex justify-between w-full px-4 text-[8px] font-black text-slate-500 uppercase tracking-widest">
