@@ -50,10 +50,10 @@ export const ExpDoppler: React.FC = () => {
 
       {/* ✅ Key Idea Block - Doppler (Top of Page) */}
       <div className="bg-yellow-500/5 p-4 rounded-[24px] border border-yellow-500/20 text-xs leading-relaxed inner-3d-box mb-6">
-        <div className="text-yellow-400 text-[22px] font-black uppercase tracking-widest mb-2">
+        <div className="text-yellow-400 text-[16px] font-black uppercase tracking-widest mb-2">
           Key Idea
         </div>
-        <p className="text-slate-300 text-[20px] font-medium">
+        <p className="text-slate-300 text-[14px] font-medium">
           When a source of light moves relative to you, its color can change — even though the light itself has not changed.
           This is called the Doppler Effect. At very high speeds (close to the speed of light), this shift becomes extreme:
           light can move out of the visible range, becoming invisible (ultraviolet or infrared).
@@ -231,7 +231,7 @@ export const ExpDoppler: React.FC = () => {
                        </p>
                      </div>
 
-                     <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
+                     <div className="mt-6 pt-6 border-t border-white/5 flex flex-col gap-4">
                         <div className="flex items-center justify-between w-full">
                           <SpeechControl text={explanationText} />
                           <motion.div 
