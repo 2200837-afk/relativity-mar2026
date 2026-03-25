@@ -78,6 +78,18 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
 
   return (
     <div className="flex flex-col w-full max-w-7xl mx-auto p-4 md:p-8 animate-in fade-in duration-700 relative space-y-12">
+
+      {/* ✅ Pre-Knowledge Block (Top of Page) */}
+      <div className="bg-yellow-500/5 p-4 rounded-[24px] border border-yellow-500/20 text-xs leading-relaxed inner-3d-box mb-6">
+        <div className="text-yellow-400 text-[10px] font-black uppercase tracking-widest mb-2">
+          Quick Start
+        </div>
+        <p className="text-slate-300 font-medium">
+          At everyday speeds, time and length seem constant. But as an object approaches the speed of light,
+          time slows down and lengths contract from an outside observer's view.
+          Use the slider to explore how these changes happen.
+        </p>
+      </div>
       
       {/* Navigator Cat - Pop-out Assistant */}
       <motion.div 
@@ -273,7 +285,9 @@ export const Simulation: React.FC<SimulationProps> = ({ velocity, setVelocity, s
                 </div>
 
                 <div className="text-sm text-slate-400 space-y-4 mb-8 leading-relaxed relative z-10 font-medium italic">
-                    <p>In this <span className="text-cyan-400 font-bold">Warp Blueprint</span>, we observe the theoretical contraction of the ship's physical bounds.</p>
+                    <p>In this <span className="text-cyan-400 font-bold">Warp Blueprint</span>, we observe the theoretical contraction of the ship's physical bounds.
+                      In this 2D schematic, we observe the theoretical contraction of the ship's physical bounds. As velocity increases, the distance measured by an external observer shortens. 
+                      The time interval measured on the ship likewise expands relative to the stationary "Lab Frame".</p>
                 </div>
 
 
