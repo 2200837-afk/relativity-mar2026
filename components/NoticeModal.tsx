@@ -73,7 +73,35 @@ export const NoticeModal: React.FC<NoticeModalProps> = ({ isOpen, onClose, type 
               >
                 <div className="flex items-center gap-2 text-yellow-400 font-black uppercase tracking-widest text-[9px]">
                   <ExternalLink size={14} />
-                  Complete External Survey
+                  Complete Survey (Foundation)
+                </div>
+                <span className="text-[8px] text-yellow-500/60 font-bold group-hover:text-yellow-400">Google Form Link</span>
+              </a>
+            </div>
+
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdVZpPvDPVCkLkn0msMm7RLEpMmwUKT3BnpECZTEm2qlz_1Bg/viewform?usp=publish-editor" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl group hover:bg-yellow-500/20 transition-all"
+              >
+                <div className="flex items-center gap-2 text-yellow-400 font-black uppercase tracking-widest text-[9px]">
+                  <ExternalLink size={14} />
+                  Complete Survey (IT & Computer Science)
+                </div>
+                <span className="text-[8px] text-yellow-500/60 font-bold group-hover:text-yellow-400">Google Form Link</span>
+              </a>
+            </div>
+
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLScd0Wu3WpVQrYtr3-UIXk3L2JKZfunN433WNj2LJQUPDyed1w/viewform?usp=publish-editor" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl group hover:bg-yellow-500/20 transition-all"
+              >
+                <div className="flex items-center gap-2 text-yellow-400 font-black uppercase tracking-widest text-[9px]">
+                  <ExternalLink size={14} />
+                  Complete Survey (Engineering & Technology & Science)
                 </div>
                 <span className="text-[8px] text-yellow-500/60 font-bold group-hover:text-yellow-400">Google Form Link</span>
               </a>
